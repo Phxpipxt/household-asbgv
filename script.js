@@ -1,12 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
   const householdId = getHouseholdIdFromURL(); // Automatically get householdId from URL
-  clearStudentAndParentData();
-  fetchStudentAndParentData(householdId);
+  if (householdId) {
+    clearStudentAndParentData();
+    fetchStudentAndParentData(householdId);
+  } else {
+    console.error("No household ID provided in the URL.");
+  }
 });
 
 function getHouseholdIdFromURL() {
   const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('householdId'); 
+  const id = urlParams.get('householdId');
+  return id || 'San0014'; // Default to 'San0014' if not provided
 }
 
 function clearStudentAndParentData() {
@@ -39,9 +44,7 @@ function clearStudentAndParentData() {
 }
 
 function fetchStudentAndParentData(householdId) {
-  // Use a CORS proxy. Remove this in production and set up proper CORS headers on your server.
-  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-  const apiEndpoint = `${proxyUrl}https://household-asbgv.replit.app/${householdId}`;
+  const apiEndpoint = `https://household-asbgv.replit.app/${householdId}`;
 
   fetch(apiEndpoint)
     .then(response => {
