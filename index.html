@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASBGV Household</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="script.js" defer></script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .profile-container {
+            background: linear-gradient(to top, #960808, white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .separator {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin: 20px 0;
+        }
+
+        .parent-photo,
+        .guardian-photo {
+            width: 120px;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        #sibling-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .sibling {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sibling-photo {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .parent-header {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans font-bold text-white">
+
+    <div class="content">
+        <div class="profile-container">
+            <div class="text-center mb-6 school-header">
+                <img src="/images/asbgv-new.png" alt="school-logo" class="mx-auto w-60 school-logo" />
+            </div>
+            <div class="text-center mb-6 student-info">
+                <img src="" alt="student-photo" class="mx-auto w-36 h-46 object-cover rounded-lg mb-2 student-photo" />
+                <p><span id="student-nickname"></span></p>
+                <p>
+                    <span id="student-name"></span> <span id="student-lastname"></span>
+                </p>
+                <p>Student ID: <span id="student-id"></span></p>
+            </div>
+            <div id="sibling-details" class="flex flex-wrap gap-5 justify-center mx-auto"></div>
+
+            <hr class="separator" />
+
+            <div class="parent-header">Parent & Guardian</div>
+
+            <div class="flex justify-center gap-5 mb-6 parent-info">
+                <div class="text-center parent flex flex-col items-center">
+                    <img src="" alt="Father Photo" class="parent-photo rounded-lg mb-2 parent-photo-father" />
+                    <p><span id="father-name"></span></p>
+                </div>
+                <div class="text-center parent flex flex-col items-center">
+                    <img src="" alt="Mother Photo" class="parent-photo rounded-lg mb-2 parent-photo-mother" />
+                    <p><span id="mother-name"></span></p>
+                </div>
+                <div class="text-center guardian flex flex-col items-center">
+                    <img src="" alt="Guardian Photo" class="guardian-photo rounded-lg mb-2 guardian-photo" />
+                    <p><span id="guardian-name"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-3 text-center">
+        <p class="text-xs">
+            Copyright &copy; <span id="current-year"></span> The American School of
+            Bangkok Green Valley. All rights reserved.
+        </p>
+    </footer>
+</body>
+
+</html>
