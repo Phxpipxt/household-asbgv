@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function getHouseholdIdFromURL() {
   const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('householdId') || 'San0014'; // Default to 'San0014' if not provided
+  return urlParams.get('householdId'); 
 }
 
 function clearStudentAndParentData() {
